@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fana Store - Product Store</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Fana Store</h1>
+      <span class="badge">Keranjang: <b id="jumlahItem">0</b></span>
+    </header>
+
+    <div class="layout">
+      <main>
+        <div class="kontrol">
+          <input type="text" id="cari" placeholder="Cari produk...">
+          <select id="kategori">
+            <option value="Semua">Semua kategori</option>
+            <option value="Elektronik">Elektronik</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Alat Tulis">Alat Tulis</option>
+          </select>
+        </div>
+        <div id="daftarProduk" class="grid"></div>
+      </main>
+
+      <aside>
+        <h2>Keranjang</h2>
+        <ul id="daftarKeranjang"></ul>
+        <p class="total">Total: <b id="total">Rp0</b></p>
+        <button id="checkout" class="checkout" type="button" disabled>
+          Lanjut ke pembayaran
+        </button>
+        <button id="kosongkan" class="sekunder">Kosongkan</button>
+      </aside>
+    </div>
+
+    <dialog id="dialogPembayaran" aria-labelledby="judulPembayaran">
+      <form id="formPembayaran" class="form-pembayaran">
+        <h2 id="judulPembayaran">Pembayaran</h2>
+        <p class="catatan-demo">
+          Silakan Lakukan Pembayaran sesuai dengan metode pembayaran yang dipilih. <br>
+          <b>Catatan:</b> Ini adalah demo, tidak ada pembayaran yang sebenarnya.
+        </p>
+        <p class="total-pembayaran">
+          Total pembayaran: <b id="totalPembayaran">Rp0</b>
+        </p>
+        <label for="metodePembayaran">Pilih metode pembayaran</label>
+        <select id="metodePembayaran" required>
+          <option value="">Pilih metode</option>
+          <option value="Transfer bank">Transfer bank (BCA, BRI, BSI, MANDIRI)</option>
+          <option value="E-wallet">E-wallet (GOPAY, OVO, DANA, SHOPEEEPAY)</option>
+          <option value="Bayar di tempat">Bayar di tempat (KASIR)</option>
+        </select>
+        <div class="aksi-pembayaran">
+          <button id="batalPembayaran" class="sekunder" type="button">
+            Batal
+          </button>
+          <button type="submit">Selesaikan Pembayaran</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="hackathon.js"></script>
+  </body>
+</html>

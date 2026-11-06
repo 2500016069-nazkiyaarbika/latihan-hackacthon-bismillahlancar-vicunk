@@ -1,0 +1,266 @@
+:root {
+  --utama: #fd8acb;
+  --latar: #f4f6fb;
+  --kartu: #fff;
+  --teks: #1b2233;
+  --abu: #040404;
+  --garis: #d9dfeb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --utama: #ff85ca;
+    --latar: #12161f;
+    --kartu: #1c2230;
+    --teks: #e8ecf5;
+    --abu: #9aa5ba;
+    --garis: #f8fafd;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--latar);
+  color: var(--teks);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--kartu);
+  border-bottom: 1px solid var(--garis);
+}
+
+.badge {
+  background: var(--utama);
+  color: #f7efef;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Layout dua kolom: produk di kiri, keranjang di kanan */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kontrol {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  padding: 0.6rem;
+  border: 1px solid var(--garis);
+  border-radius: 6px;
+  background: var(--kartu);
+  color: var(--teks);
+  font-size: 1rem;
+}
+
+#cari {
+  flex: 1;
+}
+
+/* Grid otomatis menyesuaikan lebar layar */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.kartu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  padding: 1rem;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.kartu:hover,
+.kartu:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--utama);
+  box-shadow: 0 8px 20px rgb(27 34 51 / 12%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kartu {
+    transition: none;
+  }
+
+  .kartu:hover,
+  .kartu:focus-within {
+    transform: none;
+  }
+}
+
+.kartu strong {
+  min-height: 2.6em;
+  line-height: 1.3;
+}
+
+.gambar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  font-size: 3rem;
+}
+
+.gambar svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.kartu small {
+  color: var(--abu);
+}
+
+.harga {
+  font-weight: 700;
+  color: var(--utama);
+}
+
+.kartu button {
+  margin-top: auto;
+  font-weight: 700;
+}
+
+button {
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--utama);
+  color: #f2f3f3;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+dialog button:focus-visible {
+  outline: 3px solid #a8c5ff;
+}
+
+.sekunder {
+  width: 100%;
+  margin-top: 0.5rem;
+  background: transparent;
+  color: var(--abu);
+  border: 1px solid var(--garis);
+}
+
+.checkout {
+  width: 100%;
+}
+
+aside {
+  align-self: start;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0.8rem 0;
+}
+
+aside li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--garis);
+  font-size: 0.9rem;
+}
+
+aside li div button {
+  padding: 0.1rem 0.5rem;
+}
+
+.total {
+  font-size: 1.1rem;
+}
+
+.kosong {
+  color: var(--abu);
+  padding: 1rem 0;
+}
+
+dialog {
+  width: min(440px, calc(100% - 2rem));
+  margin: auto;
+  padding: 1.5rem;
+  color: var(--teks);
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+}
+
+dialog::backdrop {
+  background: rgba(20, 20, 20, 0.55);
+}
+
+.form-pembayaran {
+  display: grid;
+  gap: 1rem;
+}
+
+.catatan-demo {
+  color: var(---abu);
+}
+
+.total-pembayaran {
+  font-size: 1.1rem;
+}
+
+.form-pembayaran select {
+  width: 100%;
+}
+
+.aksi-pembayaran {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.aksi-pembayaran .sekunder {
+  width: auto;
+  margin-top: 0;
+}
